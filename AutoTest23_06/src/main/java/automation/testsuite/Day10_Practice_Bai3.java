@@ -18,7 +18,7 @@ public class Day10_Practice_Bai3 extends CommonBase {
 	@Test
 	public void testCombined() {
 		WebElement testEvent = driver
-				.findElement(By.xpath("//span[(normalize-space()='Job Training Fair')]/../../../.."));
+				.findElement(By.xpath("///a[(normalize-space()='Cultural Diversity Symposium')]/ancestor::td[@data-date='2024-08-22']/descendant::a[(normalize-space()='Cultural Diversity Symposium')]"));
 		System.out.println("testEvent is oke");
 
 	}
