@@ -1,6 +1,5 @@
 package automation.testsuite;
 
-import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 import org.openqa.selenium.By;
@@ -15,6 +14,7 @@ import automation.page.Day13_BTVN_loginPage;
 public class Day13_BTVN_loginTest extends CommonBase
 {
 	Day13_BTVN_loginPage login;
+	Day13_BTVN_loginPage logout;
 	
 	@BeforeMethod
 	public void openBrowser()
@@ -52,6 +52,18 @@ public class Day13_BTVN_loginTest extends CommonBase
 		login = new Day13_BTVN_loginPage(driver);
 		login.Function("login@gmail.com", "12345623");
 		assertTrue(driver.findElement(By.xpath("//p[text()='Đăng nhập để truy cập vào hệ thống kho hàng']")).isDisplayed());
+	}
+	
+	@Test
+	public void logoutSuccessfully() throws InterruptedException
+	{
+		login = new Day13_BTVN_loginPage(driver);
+		logout = new Day13_BTVN_loginPage(driver);
+		login.Function("admin@gmail.com", "12345678");
+		Thread.sleep(12000);
+		logout.FunctionLogout();
+		assertTrue(driver.findElement(By.xpath("//p[text()='Đăng nhập để truy cập vào hệ thống kho hàng']")).isDisplayed());
+		
 	}
 	
 	
